@@ -16,7 +16,7 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         long count = productRepository.count();
         if(count == 0) {
-            productRepository.save(new Product("Вклад", ProductCategory.DEPOSIT));
+            productRepository.save(Product.CREATE_ACCOUNT);
         }
     }
 }

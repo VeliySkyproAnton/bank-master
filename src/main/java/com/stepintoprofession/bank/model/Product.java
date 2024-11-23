@@ -1,6 +1,7 @@
 package com.stepintoprofession.bank.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,18 +9,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="products")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     @Enumerated(EnumType.STRING)
     private ProductCategory category;
 
-    public Product(String name, ProductCategory category) {
-        this.name = name;
-        this.category = category;
-    }
+    public static final Product CREATE_ACCOUNT = new Product(0, "Открыть счет", ProductCategory.SERVICE);
 }
 
 /*

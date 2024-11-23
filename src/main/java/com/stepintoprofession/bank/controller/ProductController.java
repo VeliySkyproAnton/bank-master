@@ -13,7 +13,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public ResponseEntity<Object> viewProducts() {
+    public ResponseEntity<?> viewProducts() {
         return ResponseEntity.ok(productService.viewProducts());
     }
 }

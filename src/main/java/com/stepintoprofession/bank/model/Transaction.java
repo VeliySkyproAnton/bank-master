@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name="transactions")
 public class Transaction {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int sum;
     private Date date;

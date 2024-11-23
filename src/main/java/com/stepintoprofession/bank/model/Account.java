@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name="accounts")
 public class Account {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @JoinColumn(name="user_id")
     @ManyToOne
