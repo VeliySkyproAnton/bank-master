@@ -1,21 +1,17 @@
 package com.stepintoprofession.bank.service;
 
-import com.stepintoprofession.bank.model.Property;
-import com.stepintoprofession.bank.model.User;
+import com.stepintoprofession.bank.model.entity.Property;
+import com.stepintoprofession.bank.model.entity.User;
 import com.stepintoprofession.bank.repository.PropertyRepository;
 import com.stepintoprofession.bank.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private PropertyRepository propertyRepository;
+    private final UserRepository userRepository;
+    private final PropertyRepository propertyRepository;
 
     public User createUser(User user) {
         user = userRepository.save(user);

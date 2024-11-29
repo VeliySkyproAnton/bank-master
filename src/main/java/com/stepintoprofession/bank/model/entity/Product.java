@@ -1,6 +1,8 @@
-package com.stepintoprofession.bank.model;
+package com.stepintoprofession.bank.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,9 +14,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Product {
     @Id
-    private int id;
+    private Integer id;
+    @NotBlank
     private String name;
     @Enumerated(EnumType.STRING)
+    @NotNull
     private ProductCategory category;
 
     public static final Product CREATE_ACCOUNT = new Product(0, "Открыть счет", ProductCategory.SERVICE);

@@ -1,8 +1,8 @@
 package com.stepintoprofession.bank.service.products;
 
-import com.stepintoprofession.bank.model.Account;
-import com.stepintoprofession.bank.model.AccountStatus;
-import com.stepintoprofession.bank.model.Request;
+import com.stepintoprofession.bank.model.entity.Account;
+import com.stepintoprofession.bank.model.entity.AccountStatus;
+import com.stepintoprofession.bank.model.entity.Request;
 import com.stepintoprofession.bank.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 

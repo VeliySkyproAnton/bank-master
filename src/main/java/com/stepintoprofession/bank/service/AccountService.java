@@ -1,38 +1,34 @@
 package com.stepintoprofession.bank.service;
 
-import com.stepintoprofession.bank.model.Product;
-import com.stepintoprofession.bank.model.Request;
-import com.stepintoprofession.bank.model.RequestStatus;
-import com.stepintoprofession.bank.model.User;
+import com.stepintoprofession.bank.model.entity.Account;
+import com.stepintoprofession.bank.model.entity.AccountStatus;
+import com.stepintoprofession.bank.model.entity.User;
 import com.stepintoprofession.bank.repository.AccountRepository;
 import com.stepintoprofession.bank.repository.RequestRepository;
 import com.stepintoprofession.bank.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AccountService {
-    @Autowired
-    private AccountRepository accountRepository;
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private RequestRepository requestRepository;
+    private final AccountRepository accountRepository;
+    private final UserRepository userRepository;
+    private final RequestRepository requestRepository;
 
-    public Integer createAccountRequest(Integer userId) {
-        Request request = new Request();
+    public Account createAccount(Integer userId) {
         Optional<User> userOptional = userRepository.findById(userId);
         if(userOptional.isEmpty()) {
             throw new RuntimeException("Пользователь не найден");
         }
-        request.setUser(userOptional.get());
-        request.setCreateDate(new Date());
-        request.setProduct(Product.CREATE_ACCOUNT);
-        request.setStatus(RequestStatus.WAITING);
-        requestRepository.save(request);
-        return request.getId();
+        Account account = new Account();
+        account.setStatus(AccountStatus.OPEN);
+        account.setCreateDate(new Date());
+        account.setUser(userOptional.get());
+        accountRepository.save(account);
+        return account;
     }
 }

@@ -1,6 +1,6 @@
 package com.stepintoprofession.bank.repository;
 
-import com.stepintoprofession.bank.model.User;
+import com.stepintoprofession.bank.model.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

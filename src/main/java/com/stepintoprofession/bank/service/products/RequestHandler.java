@@ -1,6 +1,6 @@
 package com.stepintoprofession.bank.service.products;
 
-import com.stepintoprofession.bank.model.Request;
+import com.stepintoprofession.bank.model.entity.Request;
 
 public interface RequestHandler {
     boolean check(Request request);

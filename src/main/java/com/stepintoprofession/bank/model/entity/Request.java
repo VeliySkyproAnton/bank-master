@@ -1,7 +1,10 @@
-package com.stepintoprofession.bank.model;
+package com.stepintoprofession.bank.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.Data;
+import lombok.NonNull;
 
 import java.util.Date;
 
@@ -11,15 +14,20 @@ import java.util.Date;
 public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @JoinColumn(name="user_id")
     @ManyToOne
+    @NotNull
     private User user;
     @JoinColumn(name="product_id")
     @ManyToOne
+    @NotNull
     private Product product;
     @Enumerated(EnumType.STRING)
+    @NotNull
     private RequestStatus status;
+    @NotNull
+    @PastOrPresent
     private Date createDate;
     private Date closeDate;
 }

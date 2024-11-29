@@ -1,19 +1,22 @@
 package com.stepintoprofession.bank.controller;
 
 import com.stepintoprofession.bank.service.AccountService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/v1/account")
 public class AccountController {
-    @Autowired
-    private AccountService accountService;
+    private final AccountService accountService;
 
-    @PostMapping("/accounts")
+    @PostMapping
     public ResponseEntity<?> createAccount(@RequestBody Integer userId) {
-        return ResponseEntity.ok(accountService.createAccountRequest(userId));
+        return ResponseEntity.ok(accountService.createAccount(userId));
     }
 }

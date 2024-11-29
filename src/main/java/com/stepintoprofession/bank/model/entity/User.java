@@ -1,6 +1,9 @@
-package com.stepintoprofession.bank.model;
+package com.stepintoprofession.bank.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.NonNull;
@@ -15,25 +18,27 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @NonNull
+    private Integer id;
+    @NotBlank
     private String surname;
-    @NonNull
+    @NotBlank
     private String name;
+    @NotBlank
     private String patronymic;
-    @NonNull
+    @NotNull
     private Integer passportSeries;
-    @NonNull
+    @NotNull
     private Integer passportNumber;
-    @NonNull
+    @NotBlank
     private String passportRegistration;
-    @NonNull
+    @NotBlank
     private String residence;
-    @NonNull
+    @NotNull
+    @Past
     private Date birthDate;
-    @NonNull
+    @NotNull
     private Boolean criminal;
-    @NonNull
+    @NotNull
     private Integer income;
     @OneToMany(mappedBy = "user")
     private List<Property> propertyList;

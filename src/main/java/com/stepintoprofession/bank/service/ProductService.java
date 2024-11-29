@@ -1,16 +1,16 @@
 package com.stepintoprofession.bank.service;
 
-import com.stepintoprofession.bank.model.Product;
+import com.stepintoprofession.bank.model.entity.Product;
 import com.stepintoprofession.bank.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     public List<Product> viewProducts() {
         return (List<Product>) productRepository.findAll();
