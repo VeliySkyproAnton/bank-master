@@ -1,5 +1,6 @@
 package com.stepintoprofession.bank.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stepintoprofession.bank.model.entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -20,5 +21,6 @@ public class PropertyDto {
     @Min(0)
     private Integer price;
     @NotNull
+    @JsonIgnore
     private Integer userId;
 }

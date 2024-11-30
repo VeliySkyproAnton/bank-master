@@ -1,8 +1,11 @@
 package com.stepintoprofession.bank.service;
 
+import com.stepintoprofession.bank.mapper.ProductMapper;
+import com.stepintoprofession.bank.model.dto.ProductDto;
 import com.stepintoprofession.bank.model.entity.Product;
 import com.stepintoprofession.bank.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +14,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
+    private final ProductMapper productMapper;
 
-    public List<Product> viewProducts() {
-        return (List<Product>) productRepository.findAll();
+
+    public List<ProductDto> listProducts() {
+        return productMapper.entityListToDtoList(productRepository.findAll());
     }
 }

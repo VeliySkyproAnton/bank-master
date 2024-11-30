@@ -1,26 +1,42 @@
 package com.stepintoprofession.bank.service;
 
+import com.stepintoprofession.bank.exception.ServiceException;
+import com.stepintoprofession.bank.mapper.UserMapper;
+import com.stepintoprofession.bank.model.dto.UserDto;
 import com.stepintoprofession.bank.model.entity.Property;
 import com.stepintoprofession.bank.model.entity.User;
 import com.stepintoprofession.bank.repository.PropertyRepository;
 import com.stepintoprofession.bank.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
     private final PropertyRepository propertyRepository;
+    private final UserMapper userMapper;
 
-    public User createUser(User user) {
-        user = userRepository.save(user);
+    public UserDto createUser(UserDto userDto) {
+        User user = userRepository.save(userMapper.dtoToEntity(userDto));
         if(user.getPropertyList() != null) {
             for(Property property : user.getPropertyList()) {
                 property.setUser(user);
                 propertyRepository.save(property);
             }
         }
-        return user;
+        return userMapper.entityToDto(user);
+    }
+
+    public List<UserDto> listUsers() {
+        return userMapper.entityListToDtoList(userRepository.findAll());
+    }
+
+    public UserDto getUser(Integer id) {
+        return userMapper.entityToDto(userRepository.findById(id)
+                .orElseThrow(() -> new ServiceException("Пользователь отсутствует", HttpStatus.NOT_FOUND)));
     }
 }
