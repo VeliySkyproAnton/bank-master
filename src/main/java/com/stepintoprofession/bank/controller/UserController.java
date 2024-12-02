@@ -1,5 +1,6 @@
 package com.stepintoprofession.bank.controller;
 
+import com.stepintoprofession.bank.model.dto.AccountDto;
 import com.stepintoprofession.bank.model.dto.UserDto;
 import com.stepintoprofession.bank.model.entity.User;
 import com.stepintoprofession.bank.service.UserService;
@@ -30,5 +31,10 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<UserDto>> listUsers() {
         return ResponseEntity.ok(userService.listUsers());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<UserDto> deleteUser(@PathVariable Integer id) {
+        return ResponseEntity.ok(userService.deleteUser(id));
     }
 }

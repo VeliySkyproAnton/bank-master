@@ -22,9 +22,7 @@ public class TransactionDto {
     @NotNull
     @PastOrPresent
     private Date date;
-    @NotNull
     private Integer fromAccountId;
-    @NotNull
     private Integer toAccountId;
 }
 

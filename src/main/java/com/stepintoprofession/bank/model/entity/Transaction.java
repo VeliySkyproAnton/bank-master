@@ -23,11 +23,9 @@ public class Transaction {
     private Date date;
     @JoinColumn(name="from_account_id")
     @ManyToOne
-    @NotNull
     private Account fromAccount;
     @JoinColumn(name="to_account_id")
     @ManyToOne
-    @NotNull
     private Account toAccount;
 }
 

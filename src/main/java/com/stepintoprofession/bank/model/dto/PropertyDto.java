@@ -20,7 +20,4 @@ public class PropertyDto {
     @NotNull
     @Min(0)
     private Integer price;
-    @NotNull
-    @JsonIgnore
-    private Integer userId;
 }

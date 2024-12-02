@@ -6,22 +6,32 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+import org.springframework.data.jpa.repository.Temporal;
+
+import java.time.Duration;
 
 @Data
 @Entity
 @Table(name="products")
 @NoArgsConstructor
-@AllArgsConstructor
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotBlank
     private String name;
     @Enumerated(EnumType.STRING)
     @NotNull
     private ProductCategory category;
-
-    public static final Product CREATE_ACCOUNT = new Product(0, "Открыть счет", ProductCategory.SERVICE);
+    private Integer minSum;
+    private Integer maxSum;
+    private Float interestRate;
+    @JdbcTypeCode(SqlTypes.INTERVAL_SECOND)
+    @Column(columnDefinition = "interval")
+    private Duration duration;
+    private boolean deleted;
 }
 
 /*

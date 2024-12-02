@@ -1,6 +1,7 @@
 package com.stepintoprofession.bank.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -42,6 +43,13 @@ public class User {
     private Integer income;
     @OneToMany(mappedBy = "user")
     private List<Property> propertyList;
+    @Email
+    @NotBlank
+    private String email;
+    @NotBlank
+    private String phone;
+    private boolean deleted;
+}
 /*    2 Ф
 3 И
 4 О
@@ -53,5 +61,3 @@ public class User {
 10 Судимость
 11 Заработок
 12 IdСобственность */
-
-}
