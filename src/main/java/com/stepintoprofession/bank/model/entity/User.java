@@ -7,14 +7,13 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.NonNull;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
 @Entity
-@Table(name="users")
+@Table(name = "users")
 @NoArgsConstructor
 public class User {
     @Id

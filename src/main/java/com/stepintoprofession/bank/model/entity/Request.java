@@ -5,22 +5,21 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.Data;
-import lombok.NonNull;
 
 import java.util.Date;
 
 @Data
 @Entity
-@Table(name="requests")
+@Table(name = "requests")
 public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JoinColumn(name="account_id")
+    @JoinColumn(name = "account_id")
     @ManyToOne
     @NotNull
     private Account account;
-    @JoinColumn(name="product_id")
+    @JoinColumn(name = "product_id")
     @ManyToOne
     @NotNull
     private Product product;

@@ -1,12 +1,11 @@
 package com.stepintoprofession.bank.controller;
 
-import com.stepintoprofession.bank.model.dto.*;
-import com.stepintoprofession.bank.model.entity.RequestStatus;
+import com.stepintoprofession.bank.model.dto.CloseRequestDto;
+import com.stepintoprofession.bank.model.dto.ProcessRequestDto;
+import com.stepintoprofession.bank.model.dto.RequestDto;
 import com.stepintoprofession.bank.service.RequestService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,6 +41,6 @@ public class RequestController {
 
     @PostMapping
     public ResponseEntity<RequestDto> createRequest(@RequestBody @Validated RequestDto request) {
-        return  ResponseEntity.ok(requestService.createRequest(request));
+        return ResponseEntity.ok(requestService.createRequest(request));
     }
 }

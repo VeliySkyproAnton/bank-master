@@ -1,7 +1,6 @@
 package com.stepintoprofession.bank.model.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 
 @Getter

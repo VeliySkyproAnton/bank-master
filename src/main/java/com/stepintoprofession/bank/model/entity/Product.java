@@ -3,18 +3,16 @@ package com.stepintoprofession.bank.model.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-import org.springframework.data.jpa.repository.Temporal;
 
 import java.time.Duration;
 
 @Data
 @Entity
-@Table(name="products")
+@Table(name = "products")
 @NoArgsConstructor
 public class Product {
     @Id

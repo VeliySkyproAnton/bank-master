@@ -9,7 +9,8 @@ public enum RequestStatus {
     REJECTED("Rejected"),
     CLOSED("Closed"),
     IN_PROGRESS("In progress"),
-    OPEN("Open");
+    OPEN("Open"),
+    NOT_PAID("Not paid");
 
     private final String title;
 }

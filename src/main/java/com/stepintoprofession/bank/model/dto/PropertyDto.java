@@ -1,8 +1,5 @@
 package com.stepintoprofession.bank.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.stepintoprofession.bank.model.entity.User;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

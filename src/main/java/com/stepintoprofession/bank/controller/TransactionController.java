@@ -2,13 +2,9 @@ package com.stepintoprofession.bank.controller;
 
 import com.stepintoprofession.bank.model.dto.DepositDto;
 import com.stepintoprofession.bank.model.dto.TransactionDto;
-import com.stepintoprofession.bank.model.dto.UserDto;
 import com.stepintoprofession.bank.service.TransactionService;
-import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

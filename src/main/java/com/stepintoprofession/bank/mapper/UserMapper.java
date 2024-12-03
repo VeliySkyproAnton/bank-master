@@ -1,8 +1,6 @@
 package com.stepintoprofession.bank.mapper;
 
-import com.stepintoprofession.bank.model.dto.ProductDto;
 import com.stepintoprofession.bank.model.dto.UserDto;
-import com.stepintoprofession.bank.model.entity.Product;
 import com.stepintoprofession.bank.model.entity.User;
 import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;

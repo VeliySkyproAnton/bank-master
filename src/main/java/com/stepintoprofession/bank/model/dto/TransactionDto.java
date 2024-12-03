@@ -1,7 +1,5 @@
 package com.stepintoprofession.bank.model.dto;
 
-import com.stepintoprofession.bank.model.entity.Account;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -19,10 +17,11 @@ public class TransactionDto {
     @NotNull
     @Min(1)
     private Integer sum;
-    @NotNull
     @PastOrPresent
     private Date date;
+    @NotNull
     private Integer fromAccountId;
+    @NotNull
     private Integer toAccountId;
 }
 

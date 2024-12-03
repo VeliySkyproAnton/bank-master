@@ -1,15 +1,9 @@
 package com.stepintoprofession.bank.controller;
 
-import com.stepintoprofession.bank.model.dto.AccountDto;
 import com.stepintoprofession.bank.model.dto.ProductDto;
-import com.stepintoprofession.bank.model.dto.PropertyDto;
-import com.stepintoprofession.bank.model.dto.UserDto;
-import com.stepintoprofession.bank.repository.ProductRepository;
 import com.stepintoprofession.bank.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

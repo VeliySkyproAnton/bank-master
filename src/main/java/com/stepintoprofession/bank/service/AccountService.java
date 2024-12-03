@@ -4,12 +4,9 @@ import com.stepintoprofession.bank.exception.ServiceException;
 import com.stepintoprofession.bank.mapper.AccountMapper;
 import com.stepintoprofession.bank.model.dto.AccountDto;
 import com.stepintoprofession.bank.model.dto.CreateAccountDto;
-import com.stepintoprofession.bank.model.dto.ProductDto;
 import com.stepintoprofession.bank.model.entity.Account;
 import com.stepintoprofession.bank.model.entity.AccountStatus;
-import com.stepintoprofession.bank.model.entity.User;
 import com.stepintoprofession.bank.repository.AccountRepository;
-import com.stepintoprofession.bank.repository.RequestRepository;
 import com.stepintoprofession.bank.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
