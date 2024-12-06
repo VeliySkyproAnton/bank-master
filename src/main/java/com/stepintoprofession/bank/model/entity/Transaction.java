@@ -29,14 +29,5 @@ public class Transaction {
     private Account toAccount;
 }
 
-/*
 
-
-Транзакция
-1 Id
-2 Сумма
-3 Дата
-4 Счет отправителя
-5 Счет получателя
- */
 

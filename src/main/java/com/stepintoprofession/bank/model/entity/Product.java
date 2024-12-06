@@ -31,13 +31,3 @@ public class Product {
     private Duration duration;
     private boolean deleted;
 }
-
-/*
-
-Продукт
-1 Id
-2 Название
-3 Категория (Кредит вклад услуга)
-
-*/
-

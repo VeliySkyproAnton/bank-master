@@ -24,12 +24,3 @@ public class Property {
     private User user;
 }
 
-/*
-Собственность
-1 Id
-2 Название
-3 Стоимость
-
-
-
- */

@@ -39,10 +39,6 @@ public class TransactionService {
         accountRepository.save(account);
         transactionRepository.save(transaction);
     }
-    //Создать транзакцию
-    //Сохранить транзакцию
-    //Пополнить счет
-    //Сохранение в бд счет
 
     public TransactionDto createTransaction(TransactionDto dto) {
         Transaction transaction = transactionMapper.dtoToEntity(dto);
@@ -58,10 +54,4 @@ public class TransactionService {
         accountRepository.save(toAccount);
         return transactionMapper.entityToDto(transactionRepository.save(transaction));
     }
-    //Преодбразовать дто в сущность
-    //Проверить достаточно ли средств на счете
-    //Вычесть из одного счета и добавить к другому
-    //Сохранить оба счета
-    //Сохранить транзакцию
-    //Преобразовать сущность в дто и вернуть
 }

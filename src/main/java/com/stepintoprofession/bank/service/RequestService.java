@@ -48,11 +48,6 @@ public class RequestService {
         return requestMapper.entityToDto(requestRepository.save(request));
     }
 
-    //Преобразовать dto в сущность
-    //Проверить что сумма заявки между minSum и maxSum
-    //Установить статус и время открытия
-    //Сохранить в бд
-    //Преобразовать обратно в дт и вернуть
     public void closeRequest(CloseRequestDto dto) {
         Request request = requestRepository.findById(dto.getRequestId())
                 .orElseThrow(() -> new ServiceException("Заявка отсутствует", HttpStatus.NOT_FOUND));
@@ -74,12 +69,6 @@ public class RequestService {
         requestRepository.save(request);
     }
 
-    //Проверяем статус заявки(статус должен быть в процессе)
-    //Проверяем что у заявки категория продукта кредит
-    //Проверяем достаточно ли средств у пользователя чтобы закрыть кредит
-    //Вычитаем деньги с счета и сохраняем его в базе
-    //Меняем статус заявки и дату закрытия
-    //Сохранить заявку в бд
     public void processRequest(ProcessRequestDto dto) {
         Request request = requestRepository.findById(dto.getRequestId())
                 .orElseThrow(() -> new ServiceException("Заявка отсутствует", HttpStatus.NOT_FOUND));
@@ -107,12 +96,4 @@ public class RequestService {
         }
         requestRepository.save(request);
     }
-    //Проверить статус заявки(открыт)
-    //Если мы одобряем то х если отклоняем то у
-    //у меняем статус заявки и сохраняем в бд
-    //х меняем статус заявки и
-    //Если кредит то мы пополняем счет и создаем задачу
-    //Если пользователь не закрыл кредит меняем статус заявки на "не оплачен"
-    //Если заявка вклад проверяем что на счете достаточно средств забираем деньги пользователя и создаем задачу
-    //Пополняем счет пользователя с процентами и закрываем заявку
 }
